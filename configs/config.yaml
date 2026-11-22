@@ -1,0 +1,48 @@
+# AI-Based Mosquito Breeding Site Detection System Configuration
+
+project:
+  name: "AI-Based Mosquito Breeding Site Detection System"
+  version: "1.0.0"
+  description: "Detection of potential mosquito breeding habitats using satellite imagery and environmental data."
+
+# Geographic settings
+geospatial:
+  coordinate_reference_system: "EPSG:4326"
+  output_format: "GeoJSON"
+
+# Satellite data sources
+satellite:
+  primary_source: "Sentinel-2"
+  secondary_source: "Sentinel-1"
+  land_surface_temperature_source: "Landsat-8-9"
+  image_resolution_meters: 10
+
+# Machine learning settings
+machine_learning:
+  task: "potential_breeding_site_detection"
+  segmentation_model: "UNet"
+  image_size: 256
+  batch_size: 16
+  epochs: 50
+  random_seed: 42
+
+# Data directories
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  labels: "data/labels"
+  metadata: "data/metadata"
+  models: "src/models/saved_models"
+
+# Risk classification
+risk_classification:
+  categories:
+    - "Low"
+    - "Medium"
+    - "High"
+
+# Application settings
+application:
+  dashboard_framework: "Streamlit"
+  api_framework: "FastAPI"
+  debug: true
